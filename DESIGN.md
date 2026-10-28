@@ -85,6 +85,16 @@ components:
   toggle-segment-active:
     backgroundColor: "rgba(233,75,216,0.16)"
     textColor: "{colors.paper-white}"
+  field-email:
+    backgroundColor: "rgba(244,244,247,0.045)"
+    textColor: "{colors.paper-white}"
+    typography: "{typography.body}"
+    rounded: "{rounded.none}"
+    padding: "0 18px"
+    height: "52px"
+  field-email-focus:
+    backgroundColor: "rgba(244,244,247,0.07)"
+    textColor: "{colors.paper-white}"
 ---
 
 # Design System: Lopetegui's Garage
@@ -190,6 +200,12 @@ Esquinas rectas en todo lo que es interfaz: botones, interruptor y paneles (0px)
 - **Style:** cuatro esquinas rosas de 1.5px dibujadas en un pseudo-elemento. Enmarcan el monograma LG, los botones y las flechas.
 - **State:** el largo de las esquinas (`--s`) crece al pasar el cursor o al enfocar.
 
+### Field (correo de "Avísame")
+- **Character:** una ranura de la pared junto a la placa de "Avísame", del mismo alto (52px).
+- **Style:** superficie apenas aclarada, sin contorno, con el marco de esquinas en acero (blanco papel al 42%). Texto en Body de 16px (para que iOS no haga zoom), cursor rosa y placeholder al 56%.
+- **State:** al pasar el cursor, las esquinas suben al 64%. Al escribir, se vuelven rosas, crecen a 20px y engrosan a 2px; esa es la señal de foco, sin contorno extra. Con un error, las esquinas se ponen rosa tiza y el mensaje aparece debajo, en rosa tiza.
+- **Copy:** el botón dice "Avísame". Los mensajes nombran el problema y la salida: "Revisa el correo: debe verse como nombre@correo.com."
+
 ### Toggle (Frente / Espalda)
 - **Style:** superficie rellena y tenue, sin contorno, con dos segmentos en Label.
 - **State:** el segmento activo lleva fondo rosa al 16% y un borde interior rosa de 1px.
@@ -209,7 +225,7 @@ Persiana de lamas de acero con ranuras que atraviesan el logo pintado. Tiene gu�
 ### Do:
 - **Do** usar el logo de la marca como imagen, a 56vw en la persiana de escritorio y a 84vw en el celular.
 - **Do** marcar los controles con las cuatro esquinas rosas y fondo de rosa velado.
-- **Do** mantener el movimiento en cuatro gestos: la persiana atada al scroll, el giro del rack (600ms), el detalle (250–300ms) y el destello de glitch cada 6–12s. Respetar prefers-reduced-motion.
+- **Do** mantener el movimiento en cinco gestos: la persiana atada al scroll, el giro del rack (600ms), el detalle (250–300ms), el destello de glitch cada 6–12s y la inclinación del monograma LG en el cierre (hasta 16°, 700ms con ease-out, solo con mouse). Respetar prefers-reduced-motion.
 - **Do** iluminar con el foco cenital y cerrar las escenas con el piso.
 
 ### Don't:

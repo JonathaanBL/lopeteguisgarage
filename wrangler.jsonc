@@ -1,9 +1,22 @@
 {
 	// Worker de Cloudflare que publica la página; el nombre debe coincidir con el del panel.
 	"name": "lopeteguisgarage",
+	"main": "src/worker.js",
 	"compatibility_date": "2026-10-13",
 	// Solo se publica public/. PRODUCT.md, DESIGN.md y .impeccable/ se quedan en el repo.
 	"assets": {
-		"directory": "./public"
+		"directory": "./public",
+		"binding": "ASSETS"
+	},
+	// Correos de "Avísame cuando abra" (tabla en migrations/).
+	"d1_databases": [
+		{
+			"binding": "DB",
+			"database_name": "lopeteguisgarage-avisos",
+			"database_id": "4bfd42df-b00f-48b7-983a-04390420e1eb"
+		}
+	],
+	"observability": {
+		"enabled": true
 	}
 }

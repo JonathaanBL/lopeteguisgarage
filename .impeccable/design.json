@@ -335,6 +335,14 @@
       "description": "Lemas pintados en la pared con desgaste y divisores rosas.",
       "html": "<ul class=\"ds-stencil\"><li>Built different</li><li>Made to last</li></ul>",
       "css": ".ds-stencil{display:flex;margin:0;padding:0;list-style:none;color:#ecebe4;opacity:.82}.ds-stencil li{padding:4px 28px;font:600 18px/1.25 'Barlow Semi Condensed',sans-serif;letter-spacing:.3em;text-transform:uppercase}.ds-stencil li+li{border-left:2px solid rgba(233,75,216,.75)}"
+    },
+    {
+      "name": "Email Field",
+      "kind": "input",
+      "refersTo": "field-email",
+      "description": "Ranura para el correo de 'Avísame': superficie tenue con esquinas de acero que se vuelven rosas al escribir.",
+      "html": "<span class=\"ds-field\"><input type=\"email\" placeholder=\"tu@correo.com\" aria-label=\"Tu correo\"></span>",
+      "css": ".ds-field{--c:rgba(244,244,247,.42);--s:10px;--t:1.5px;position:relative;display:flex;width:320px;background:rgba(244,244,247,.045);transition:--s .3s cubic-bezier(.16,1,.3,1)}.ds-field::before{content:'';position:absolute;inset:0;pointer-events:none;background:linear-gradient(var(--c),var(--c)) 0 0/var(--s) var(--t),linear-gradient(var(--c),var(--c)) 0 0/var(--t) var(--s),linear-gradient(var(--c),var(--c)) 100% 0/var(--s) var(--t),linear-gradient(var(--c),var(--c)) 100% 0/var(--t) var(--s),linear-gradient(var(--c),var(--c)) 0 100%/var(--s) var(--t),linear-gradient(var(--c),var(--c)) 0 100%/var(--t) var(--s),linear-gradient(var(--c),var(--c)) 100% 100%/var(--s) var(--t),linear-gradient(var(--c),var(--c)) 100% 100%/var(--t) var(--s);background-repeat:no-repeat}.ds-field:hover{--c:rgba(244,244,247,.64)}.ds-field:focus-within{--c:#e94bd8;--s:20px;--t:2px;background:rgba(244,244,247,.07)}.ds-field input{flex:1;min-width:0;height:52px;padding:0 18px;border:0;background:transparent;color:#f4f4f7;font:400 16px/1 'Barlow',sans-serif;caret-color:#e94bd8;outline:none}.ds-field input::placeholder{color:rgba(244,244,247,.56)}"
     }
   ],
   "narrative": {
