@@ -1,0 +1,391 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-28T19:44:34.153866+00:00",
+  "title": "Design System: Lopetegui's Garage",
+  "extensions": {
+    "colorMeta": {
+      "night-void": {
+        "role": "neutral",
+        "displayName": "Noche",
+        "canonical": "#020205",
+        "tonalRamp": [
+          "#171726",
+          "#272749",
+          "#383875",
+          "#4545a5",
+          "#6a6abe",
+          "#9999cc",
+          "#c4c4de",
+          "#e9e9f1"
+        ]
+      },
+      "workshop-dark": {
+        "role": "neutral",
+        "displayName": "Taller oscuro",
+        "canonical": "#030307",
+        "tonalRamp": [
+          "#171726",
+          "#292948",
+          "#3a3a73",
+          "#4848a2",
+          "#6d6dbb",
+          "#9b9bca",
+          "#c5c5dd",
+          "#e9e9f1"
+        ]
+      },
+      "steel-face": {
+        "role": "neutral",
+        "displayName": "Acero",
+        "canonical": "#1c1b25",
+        "tonalRamp": [
+          "#1c1c21",
+          "#33323e",
+          "#4e4c62",
+          "#676487",
+          "#8885a3",
+          "#aba9bc",
+          "#cdccd6",
+          "#ececef"
+        ]
+      },
+      "slat-groove": {
+        "role": "neutral",
+        "displayName": "Ranura de lámina",
+        "canonical": "#050409",
+        "tonalRamp": [
+          "#1a1825",
+          "#2f2947",
+          "#463b72",
+          "#5b4aa0",
+          "#7d6eb9",
+          "#a59cc9",
+          "#cac6dd",
+          "#ebeaf1"
+        ]
+      },
+      "garage-pink": {
+        "role": "primary",
+        "displayName": "Rosa Garage",
+        "canonical": "#e94bd8",
+        "tonalRamp": [
+          "#2d112a",
+          "#561a50",
+          "#8f1f83",
+          "#cd1eba",
+          "#e048d0",
+          "#e184d7",
+          "#e8bae3",
+          "#f5e6f3"
+        ]
+      },
+      "neon-core": {
+        "role": "primary",
+        "displayName": "Núcleo de neón",
+        "canonical": "#f6c9f0",
+        "tonalRamp": [
+          "#2b1228",
+          "#541c4c",
+          "#8a247c",
+          "#c525b0",
+          "#da4ec7",
+          "#dd88d2",
+          "#e6bce1",
+          "#f4e6f2"
+        ]
+      },
+      "pink-chalk": {
+        "role": "secondary",
+        "displayName": "Rosa tiza",
+        "canonical": "#db83e4",
+        "tonalRamp": [
+          "#28132a",
+          "#4c1f51",
+          "#7c2985",
+          "#b02dbd",
+          "#c755d3",
+          "#d28cd9",
+          "#e1bee4",
+          "#f2e7f3"
+        ]
+      },
+      "garage-violet": {
+        "role": "secondary",
+        "displayName": "Violeta Garage",
+        "canonical": "#8b3fe0",
+        "tonalRamp": [
+          "#1e122b",
+          "#371c54",
+          "#54238a",
+          "#7124c6",
+          "#904dda",
+          "#b087de",
+          "#d0bce7",
+          "#ede6f4"
+        ]
+      },
+      "glitch-blue": {
+        "role": "tertiary",
+        "displayName": "Azul glitch",
+        "canonical": "#006dff",
+        "tonalRamp": [
+          "#0d1c30",
+          "#11325f",
+          "#0f4c9e",
+          "#0565e5",
+          "#3286f6",
+          "#77aaee",
+          "#b3cdef",
+          "#e4ecf7"
+        ]
+      },
+      "glitch-magenta": {
+        "role": "tertiary",
+        "displayName": "Magenta glitch",
+        "canonical": "#ff18b2",
+        "tonalRamp": [
+          "#300d25",
+          "#5f1145",
+          "#9e0f6f",
+          "#e5059b",
+          "#f632b4",
+          "#ee77c6",
+          "#efb3db",
+          "#f7e4f0"
+        ]
+      },
+      "chrome-light": {
+        "role": "neutral",
+        "displayName": "Cromo",
+        "canonical": "#e9eaf0",
+        "tonalRamp": [
+          "#1b1c22",
+          "#31333f",
+          "#494d64",
+          "#60668b",
+          "#8187a6",
+          "#a7aabe",
+          "#cbcdd7",
+          "#ebecef"
+        ]
+      },
+      "paper-white": {
+        "role": "neutral",
+        "displayName": "Blanco papel",
+        "canonical": "#f4f4f7",
+        "tonalRamp": [
+          "#1c1c21",
+          "#32323e",
+          "#4b4b62",
+          "#646487",
+          "#8484a3",
+          "#a9a9bc",
+          "#ccccd6",
+          "#ececef"
+        ]
+      },
+      "bone-stencil": {
+        "role": "neutral",
+        "displayName": "Hueso de esténcil",
+        "canonical": "#ecebe4",
+        "tonalRamp": [
+          "#22211c",
+          "#3f3d31",
+          "#63604a",
+          "#898462",
+          "#a5a183",
+          "#bdbaa8",
+          "#d6d5cc",
+          "#efeeec"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Rótulo",
+        "purpose": "Rótulos de sección pintados en mayúsculas (Merch en camino, Síguenos para la apertura)."
+      },
+      "title": {
+        "displayName": "Nombre de prenda",
+        "purpose": "Nombre de la prenda en el detalle."
+      },
+      "body": {
+        "displayName": "Texto",
+        "purpose": "Texto corrido, 44ch máximo."
+      },
+      "label": {
+        "displayName": "Rótulo de control",
+        "purpose": "Botones, interruptores, cerrar, pie."
+      },
+      "neon": {
+        "displayName": "Neón",
+        "purpose": "Solo el tubo PRÓXIMAMENTE."
+      },
+      "stencil": {
+        "displayName": "Esténcil",
+        "purpose": "Lemas pintados en la pared, con máscara de desgaste."
+      }
+    },
+    "shadows": [
+      {
+        "name": "shutter-lift",
+        "value": "0 26px 40px rgba(0,0,0,.85)",
+        "purpose": "Borde inferior de la persiana sobre el interior mientras sube."
+      },
+      {
+        "name": "hung-garment",
+        "value": "drop-shadow(0 14px 22px rgba(0,0,0,.6))",
+        "purpose": "Prendas colgadas en el rack."
+      },
+      {
+        "name": "chrome",
+        "value": "0 4px 8px rgba(0,0,0,.7)",
+        "purpose": "Jaladera, cerradura y riel."
+      },
+      {
+        "name": "neon-glow",
+        "value": "0 0 4px rgba(233,75,216,.95), 0 0 14px rgba(233,75,216,.75), 0 0 30px rgba(233,75,216,.45)",
+        "purpose": "Text-shadow exclusivo del tubo PRÓXIMAMENTE."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease-out",
+        "value": "cubic-bezier(.16,1,.3,1)",
+        "purpose": "Curva única para giros, aperturas y esquinas."
+      },
+      {
+        "name": "shutter-lift",
+        "value": "scroll-linked translate3d, sin duración propia",
+        "purpose": "La persiana sube atada al scroll."
+      },
+      {
+        "name": "rack-turn",
+        "value": "600ms ease-out",
+        "purpose": "La prenda activa gira de frente."
+      },
+      {
+        "name": "detail-open",
+        "value": "250–300ms ease-out",
+        "purpose": "Apertura y cierre del detalle."
+      },
+      {
+        "name": "flip",
+        "value": "180ms ease-out por mitad",
+        "purpose": "Frente/Espalda."
+      },
+      {
+        "name": "glitch-flash",
+        "value": "220ms steps(2) cada 6–12s",
+        "purpose": "Destello de glitch heredado de la marca."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "slider",
+        "value": "700px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Follow Button",
+      "kind": "button",
+      "refersTo": "button-follow",
+      "description": "Placa rotulada con esquinas rosas; acción principal de seguir.",
+      "html": "<a class=\"ds-btn-follow\" href=\"#\"><svg viewBox=\"0 0 24 24\" width=\"20\" height=\"20\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" aria-hidden=\"true\"><rect x=\"2.5\" y=\"2.5\" width=\"19\" height=\"19\" rx=\"5.5\"/><circle cx=\"12\" cy=\"12\" r=\"4.3\"/></svg>Síguenos · Instagram</a>",
+      "css": ".ds-btn-follow{--c:#e94bd8;--s:10px;position:relative;display:inline-flex;align-items:center;gap:12px;min-height:52px;padding:0 26px;background:rgba(233,75,216,.13);color:#fff;text-decoration:none;font:600 13px/1 'Barlow Semi Condensed',sans-serif;letter-spacing:.24em;text-transform:uppercase;transition:background-color .25s}.ds-btn-follow::before{content:'';position:absolute;inset:0;pointer-events:none;background:linear-gradient(var(--c),var(--c)) 0 0/var(--s) 1.5px no-repeat,linear-gradient(var(--c),var(--c)) 0 0/1.5px var(--s) no-repeat,linear-gradient(var(--c),var(--c)) 100% 0/var(--s) 1.5px no-repeat,linear-gradient(var(--c),var(--c)) 100% 0/1.5px var(--s) no-repeat,linear-gradient(var(--c),var(--c)) 0 100%/var(--s) 1.5px no-repeat,linear-gradient(var(--c),var(--c)) 0 100%/1.5px var(--s) no-repeat,linear-gradient(var(--c),var(--c)) 100% 100%/var(--s) 1.5px no-repeat,linear-gradient(var(--c),var(--c)) 100% 100%/1.5px var(--s) no-repeat;transition:background-size .3s cubic-bezier(.16,1,.3,1)}.ds-btn-follow:hover,.ds-btn-follow:focus-visible{--s:20px;background-color:rgba(233,75,216,.26)}.ds-btn-follow:focus-visible{outline:2px solid #e94bd8;outline-offset:3px}"
+    },
+    {
+      "name": "LG Corner Frame",
+      "kind": "custom",
+      "refersTo": "",
+      "description": "Marco de cuatro esquinas rosas que enmarca el monograma LG.",
+      "html": "<div class=\"ds-lg-frame\"><span>LG</span></div>",
+      "css": ".ds-lg-frame{--c:#e94bd8;--s:18px;position:relative;display:grid;place-items:center;width:112px;height:112px;color:#f4f4f7;font:800 34px/1 'Barlow Condensed',sans-serif}.ds-lg-frame::before{content:'';position:absolute;inset:0;background:linear-gradient(var(--c),var(--c)) 0 0/var(--s) 1.5px no-repeat,linear-gradient(var(--c),var(--c)) 0 0/1.5px var(--s) no-repeat,linear-gradient(var(--c),var(--c)) 100% 0/var(--s) 1.5px no-repeat,linear-gradient(var(--c),var(--c)) 100% 0/1.5px var(--s) no-repeat,linear-gradient(var(--c),var(--c)) 0 100%/var(--s) 1.5px no-repeat,linear-gradient(var(--c),var(--c)) 0 100%/1.5px var(--s) no-repeat,linear-gradient(var(--c),var(--c)) 100% 100%/var(--s) 1.5px no-repeat,linear-gradient(var(--c),var(--c)) 100% 100%/1.5px var(--s) no-repeat;}"
+    },
+    {
+      "name": "View Toggle",
+      "kind": "chip",
+      "refersTo": "toggle-segment",
+      "description": "Interruptor Frente/Espalda en superficie rellena.",
+      "html": "<div class=\"ds-toggle\"><button aria-pressed=\"true\">Frente</button><button aria-pressed=\"false\">Espalda</button></div>",
+      "css": ".ds-toggle{display:inline-flex;gap:2px;padding:3px;background:rgba(255,255,255,.06)}.ds-toggle button{min-height:40px;padding:0 16px;border:0;background:none;color:rgba(244,244,247,.64);font:600 11px/1 'Barlow Semi Condensed',sans-serif;letter-spacing:.2em;text-transform:uppercase;cursor:pointer;transition:background .25s,color .25s}.ds-toggle button[aria-pressed=true]{background:rgba(233,75,216,.16);color:#fff;box-shadow:inset 0 0 0 1px #e94bd8}.ds-toggle button:focus-visible{outline:1px solid #e94bd8;outline-offset:2px}"
+    },
+    {
+      "name": "Neon Tube",
+      "kind": "custom",
+      "refersTo": "",
+      "description": "El único elemento con brillo: PRÓXIMAMENTE entre dos tubos.",
+      "html": "<p class=\"ds-neon\"><span>Próximamente</span></p>",
+      "css": ".ds-neon{display:flex;align-items:center;gap:24px;font:600 16px/1 'Barlow Semi Condensed',sans-serif;letter-spacing:.5em;text-transform:uppercase;color:#f6c9f0;text-shadow:0 0 4px rgba(233,75,216,.95),0 0 14px rgba(233,75,216,.75),0 0 30px rgba(233,75,216,.45)}.ds-neon::before,.ds-neon::after{content:'';width:80px;height:2px;border-radius:2px;background:#f6c9f0;box-shadow:0 0 6px rgba(233,75,216,.95),0 0 16px rgba(233,75,216,.6)}"
+    },
+    {
+      "name": "Hang Tag",
+      "kind": "custom",
+      "refersTo": "",
+      "description": "Etiqueta colgante de color; la seleccionada baja y brilla en su color.",
+      "html": "<button class=\"ds-tag\" aria-pressed=\"true\" style=\"--c:#2f6bff\"><span class=\"ds-tag-string\"></span><span class=\"ds-tag-card\">Azul</span></button>",
+      "css": ".ds-tag{display:flex;flex-direction:column;align-items:center;padding:0;border:0;background:none;cursor:pointer;transform-origin:50% 0;transition:transform .3s cubic-bezier(.16,1,.3,1)}.ds-tag:hover{transform:rotate(5deg)}.ds-tag-string{width:1px;height:40px;background:rgba(244,244,247,.38)}.ds-tag-card{display:flex;align-items:center;justify-content:center;width:26px;height:66px;background:var(--c);clip-path:polygon(23% 0,77% 0,100% 11%,100% 100%,0 100%,0 11%);writing-mode:vertical-rl;color:#f4f4f7;font:700 8px/1 'Barlow Semi Condensed',sans-serif;letter-spacing:.2em;text-transform:uppercase}.ds-tag[aria-pressed=true] .ds-tag-card{transform:translateY(6px)}"
+    },
+    {
+      "name": "Wall Stencil",
+      "kind": "custom",
+      "refersTo": "",
+      "description": "Lemas pintados en la pared con desgaste y divisores rosas.",
+      "html": "<ul class=\"ds-stencil\"><li>Built different</li><li>Made to last</li></ul>",
+      "css": ".ds-stencil{display:flex;margin:0;padding:0;list-style:none;color:#ecebe4;opacity:.82}.ds-stencil li{padding:4px 28px;font:600 18px/1.25 'Barlow Semi Condensed',sans-serif;letter-spacing:.3em;text-transform:uppercase}.ds-stencil li+li{border-left:2px solid rgba(233,75,216,.75)}"
+    }
+  ],
+  "narrative": {
+    "northStar": "La persiana del taller",
+    "overview": "Lopetegui's Garage es un taller que todavía no abre, visto de noche bajo un solo foco. La página entera es ese lugar. Una persiana de lámina corrugada, con el logo gótico pintado encima, ocupa la primera pantalla y sube con el scroll. Adentro hay una pared oscura, un riel cromado con el merch colgado, los lemas pintados en esténcil y un piso. El mundo se arma con materiales reales: acero, cromo, pintura, tela y neón. Nada de capas decorativas.",
+    "keyCharacteristics": [
+      "Fondo noche (#020205) con una luz cenital fría y un piso marcado.",
+      "Logo gótico real (imagen de la marca), nunca sustituido por una fuente.",
+      "Rosa de marca plano para rotular; un solo elemento con brillo de neón.",
+      "Controles marcados con cuatro esquinas rosas, como el marco del monograma LG.",
+      "Tipografía Barlow en tres anchos: condensada para títulos, semicondensada espaciada para rótulos y normal para el texto corrido."
+    ],
+    "rules": [
+      {
+        "name": "The One Neon Rule",
+        "body": "Solo PRÓXIMAMENTE brilla. Todo lo demás en rosa es plano: sin resplandores ni sombras de color.",
+        "section": "colors"
+      },
+      {
+        "name": "The Material Gradient Rule",
+        "body": "Los degradados solo dibujan materia física: lamas de acero, cromo, volumen de las prendas y la luz del foco. Nunca rellenan fondos decorativos ni texto.",
+        "section": "colors"
+      },
+      {
+        "name": "The Real Lettering Rule",
+        "body": "El logo LOPETEGUI'S / GARAGE y el monograma LG son la imagen de la marca. Nunca se reescriben con una fuente gótica parecida.",
+        "section": "typography"
+      },
+      {
+        "name": "The No Kicker Rule",
+        "body": "Ningún título lleva una etiqueta pequeña encima. Las aclaraciones, como \"Diseño de muestra\", van debajo del contenido al que se refieren.",
+        "section": "typography"
+      },
+      {
+        "name": "The Single Lamp Rule",
+        "body": "Una sola fuente de luz desde arriba. Si un elemento necesita destacarse, se ilumina con el foco o se acerca, no se eleva con una sombra de tarjeta.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Do usar el logo de la marca como imagen, a 56vw en la persiana de escritorio y a 84vw en el celular.",
+      "Do marcar los controles con las cuatro esquinas rosas y fondo de rosa velado.",
+      "Do mantener el movimiento en cuatro gestos: la persiana atada al scroll, el giro del rack (600ms), el detalle (250–300ms) y el destello de glitch cada 6–12s. Respetar prefers-reduced-motion.",
+      "Do iluminar con el foco cenital y cerrar las escenas con el piso."
+    ],
+    "donts": [
+      "Don't añadir resplandores de color fuera del neón de PRÓXIMAMENTE.",
+      "Don't usar pastillas redondeadas, cajas con contorno de 1px ni sombras de tarjeta en la interfaz.",
+      "Don't poner etiquetas pequeñas encima de los títulos ni numerar secciones de forma decorativa.",
+      "Don't usar degradados en texto o como relleno decorativo.",
+      "Don't sustituir el logo gótico por una fuente parecida."
+    ]
+  }
+}
