@@ -1,0 +1,9 @@
+{
+	// Worker de Cloudflare que publica la página; el nombre debe coincidir con el del panel.
+	"name": "lopeteguisgarage",
+	"compatibility_date": "2026-10-13",
+	// Solo se publica public/. PRODUCT.md, DESIGN.md y .impeccable/ se quedan en el repo.
+	"assets": {
+		"directory": "./public"
+	}
+}
