@@ -29,7 +29,7 @@ Abierto: el dueño todavía no ha definido en qué trabajará el taller (autos, 
 
 ## Brand Commitments
 
-- Nombre: Lopetegui's Garage. Monograma: LG. Fecha: EST. 2026.
+- Nombre: Lopetegui's Garage. Monograma: LG. Fecha: EST. 2026. Apertura prevista: 2027 (confirmada por el dueño; sin día ni mes).
 - Logo: "LOPETEGUI'S" sobre "GARAGE" en letra gótica (blackletter) con textura desgastada, recortado de `assets/desktop-reference.webp`. Monograma LG dentro de un marco de esquinas rosas.
 - Lemas en inglés: Built different, Made to last, Quality over quantity, Passion drives us.
 - El dueño pidió conservar los colores y el fondo de su página actual: negro #020205, rayas de glitch azul/violeta/rosa, "COMING SOON" en rosa con brillo, scanlines y ruido.
