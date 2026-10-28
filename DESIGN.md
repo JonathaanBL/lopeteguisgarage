@@ -218,14 +218,16 @@ Esquinas rectas en todo lo que es interfaz: botones, interruptor y paneles (0px)
 Un riel cromado del que cuelgan las prendas. En reposo se ven de lado (rotateY ±72°, escala 0.86). La prenda activa gira de frente en 600ms con ease-out y abre espacio en el riel. El foco del teclado pinta de rosa el tramo del riel sobre la prenda. En el celular, el riel se desliza y la prenda del centro queda de frente.
 
 ### Shutter (componente propio)
-Persiana de lamas de acero con ranuras que atraviesan el logo pintado. Tiene guías laterales fijas, un cajón superior y un riel inferior más grueso con la jaladera, la cerradura y los botones de seguir. Sube atada al scroll con un transform translate3d; no tiene animación propia.
+Persiana de lamas de acero con ranuras que atraviesan el logo pintado. Tiene guías laterales fijas, un cajón superior y un riel inferior más grueso con la jaladera, la cerradura y los botones de seguir. Sube atada al scroll con un transform translate3d.
+
+Bajo el cajón está el tambor, donde la persiana se enrolla. Es un cilindro de acero con lámina fina enrollada, bordes en sombra y un brillo arriba del centro. Su grosor va de 0.28 a 1.5 lamas según cuánto ha subido la persiana, y sus lamas se desplazan con el scroll para que parezca que gira. Justo debajo, un labio de lamas más juntas y en sombra hace que la persiana se vea curvarse al entrar. Al llegar arriba, el tambor da un golpe de 3px en 450ms y se asienta. Todo usa transform y background-position; con movimiento reducido el tambor no se muestra.
 
 ## Do's and Don'ts
 
 ### Do:
 - **Do** usar el logo de la marca como imagen, a 56vw en la persiana de escritorio y a 84vw en el celular.
 - **Do** marcar los controles con las cuatro esquinas rosas y fondo de rosa velado.
-- **Do** mantener el movimiento en cinco gestos: la persiana atada al scroll, el giro del rack (600ms), el detalle (250–300ms), el destello de glitch cada 6–12s y la inclinación del monograma LG en el cierre (hasta 16°, 700ms con ease-out, solo con mouse). Respetar prefers-reduced-motion.
+- **Do** mantener el movimiento en seis gestos: la persiana atada al scroll, que se enrolla en el tambor y se asienta al llegar arriba; el encendido del neón una sola vez al cargar (1.4s, parpadeos en steps); el giro del rack (600ms); el detalle (250–300ms); el destello de glitch cada 6–12s; y la inclinación del monograma LG en el cierre (hasta 16°, 700ms con ease-out, solo con mouse). Respetar prefers-reduced-motion.
 - **Do** iluminar con el foco cenital y cerrar las escenas con el piso.
 
 ### Don't:
