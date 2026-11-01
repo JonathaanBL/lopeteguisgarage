@@ -443,6 +443,46 @@ img{max-width:100%}
 }
 .close-sec::after{height:var(--floor)}
 
+/* Manifiesto: los lemas en grande; cada palabra se pinta al pasar por ella con el scroll */
+.manifesto{
+  position:relative;
+  padding:clamp(120px,16vw,220px) var(--pad);
+  background:radial-gradient(60% 50% at 50% 50%,rgba(205,195,255,.05),transparent 70%),#030307;
+}
+.mf-text{
+  max-width:1240px;
+  margin:0 auto;
+  font:800 clamp(46px,8.6vw,136px)/.94 var(--display);
+  letter-spacing:-.01em;
+  text-transform:uppercase;
+  color:var(--ink);
+}
+.mf-line{display:block}
+.mf-line:nth-child(even){text-align:right}
+.mf-w{transition:color .45s var(--ease-out)}
+.manifesto.is-live .mf-w{color:rgba(244,244,247,.12)}
+.manifesto.is-live .mf-w.on{color:var(--ink)}
+.manifesto.is-live .mf-w.mf-accent.on{color:var(--pink)}
+
+/* Linterna: en computadora, una luz suave sigue al cursor por el taller */
+.torch{
+  position:absolute;
+  left:0;
+  top:0;
+  z-index:3;
+  width:560px;
+  height:560px;
+  margin:-280px 0 0 -280px;
+  border-radius:50%;
+  background:radial-gradient(closest-side,rgba(222,214,255,.24),rgba(214,206,255,.09) 50%,transparent);
+  mix-blend-mode:screen;
+  opacity:0;
+  pointer-events:none;
+  transition:opacity .4s var(--ease-out);
+  will-change:transform;
+}
+.torch.on{opacity:1}
+
 /* Cintas de taller: cruzan la pared y avanzan solo mientras haces scroll */
 .tapes{position:relative;z-index:2;height:clamp(118px,11vw,160px);margin:0 calc(-1 * var(--pad)) clamp(56px,7vw,104px)}
 .tape{
@@ -728,6 +768,7 @@ img{max-width:100%}
     <div class="stage" id="stage">
       <div class="interior" id="interior">
         <canvas class="streaks" data-zones="interior" aria-hidden="true"></canvas>
+        <div class="torch" id="torch" aria-hidden="true"></div>
         <div class="in-wrap">
           <h2 class="plaque" id="plaque">Merch en camino</h2>
           <p class="plaque-sub" id="plaqueSub">Diseños de muestra · todavía no están a la venta</p>
@@ -782,6 +823,15 @@ img{max-width:100%}
       <div class="drum" id="drum" aria-hidden="true"><div class="lip" id="lip"></div><div class="roll" id="roll"></div></div>
       <div class="housing" aria-hidden="true"></div>
     </div>
+  </section>
+
+  <section class="manifesto" id="manifesto" aria-label="Lo que mueve a Lopetegui’s Garage">
+    <p class="mf-text">
+      <span class="mf-line"><span class="mf-w">Built</span> <span class="mf-w mf-accent">different.</span></span>
+      <span class="mf-line"><span class="mf-w">Made</span> <span class="mf-w">to</span> <span class="mf-w">last.</span></span>
+      <span class="mf-line"><span class="mf-w">Quality</span> <span class="mf-w">over</span> <span class="mf-w">quantity.</span></span>
+      <span class="mf-line"><span class="mf-w">Passion</span> <span class="mf-w">drives</span> <span class="mf-w">us.</span></span>
+    </p>
   </section>
 
   <footer class="close-sec" id="contacto" aria-labelledby="closeTitle">
@@ -1362,7 +1412,7 @@ let ticking = false;
 addEventListener("scroll", () => {
   if (ticking) return;
   ticking = true;
-  requestAnimationFrame(() => { lift(); runTapes(); ticking = false; });
+  requestAnimationFrame(() => { lift(); runTapes(); runManifesto(); ticking = false; });
 }, { passive:true });
 interior.addEventListener("focusin", () => {
   if (!reduce && lifted < 1) scrollTo({ top: garageTop + runway, behavior:"smooth" });
@@ -1669,6 +1719,34 @@ function runTapes(force){
 
 $("#wordmark").src = IMG.garage;
 
+/* ---------- Manifiesto: cada palabra se pinta al pasar por ella ---------- */
+const manifestoEl = $("#manifesto"), mfWords = [...manifestoEl.querySelectorAll(".mf-w")];
+if (!reduce) manifestoEl.classList.add("is-live");
+function runManifesto(){
+  if (reduce) return;
+  const r = manifestoEl.getBoundingClientRect();
+  if (r.bottom < 0 || r.top > innerHeight) return;
+  const line = innerHeight * .58;
+  for (const w of mfWords) w.classList.toggle("on", w.getBoundingClientRect().top < line);
+}
+
+/* ---------- Linterna: una luz suave sigue al cursor por el taller ---------- */
+if (!reduce && matchMedia("(hover:hover) and (pointer:fine)").matches){
+  const torch = $("#torch");
+  let torchRaf = 0, tx = 0, ty = 0;
+  interior.addEventListener("pointermove", e => {
+    const r = interior.getBoundingClientRect();
+    tx = e.clientX - r.left; ty = e.clientY - r.top;
+    torch.classList.add("on");
+    if (torchRaf) return;
+    torchRaf = requestAnimationFrame(() => {
+      torchRaf = 0;
+      torch.style.transform = `translate3d(${tx.toFixed(0)}px,${ty.toFixed(0)}px,0)`;
+    });
+  });
+  interior.addEventListener("pointerleave", () => torch.classList.remove("on"));
+}
+
 /* ---------- Monograma: se inclina un poco con el puntero ---------- */
 if (!reduce && matchMedia("(hover:hover) and (pointer:fine)").matches){
   const closeSec = document.getElementById("contacto");
@@ -1702,6 +1780,7 @@ syncMode();
 lift();
 if (!reduce) rollUp(lifted);
 fillTapes();
+runManifesto();
 if (!reduce) neon.addEventListener("animationend", e => {
   if (e.animationName === "neonIgnite") neon.classList.remove("ignite");
 });
