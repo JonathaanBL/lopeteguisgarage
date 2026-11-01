@@ -439,9 +439,51 @@ img{max-width:100%}
   --floor:clamp(48px,7vw,84px);
   position:relative;
   overflow:hidden;
-  padding:clamp(110px,14vw,190px) var(--pad) calc(var(--floor) + 18px);
+  padding:clamp(28px,4vw,56px) var(--pad) calc(var(--floor) * .5);
 }
 .close-sec::after{height:var(--floor)}
+
+/* Cintas de taller: cruzan la pared y avanzan solo mientras haces scroll */
+.tapes{position:relative;z-index:2;height:clamp(118px,11vw,160px);margin:0 calc(-1 * var(--pad)) clamp(56px,7vw,104px)}
+.tape{
+  position:absolute;
+  top:50%;
+  left:-6%;
+  right:-6%;
+  overflow:hidden;
+  padding:clamp(10px,1vw,14px) 0;
+  font:800 clamp(18px,2vw,28px)/1 var(--display);
+  letter-spacing:.06em;
+  text-transform:uppercase;
+  white-space:nowrap;
+}
+.tape-a{background:var(--pink);color:#020205;transform:translateY(-64%) rotate(-2.6deg);box-shadow:0 12px 20px rgba(0,0,0,.55)}
+.tape-b{background:#0d0c12;color:var(--pink);transform:translateY(-34%) rotate(1.9deg);box-shadow:0 10px 18px rgba(0,0,0,.6)}
+.tape-track{
+  display:flex;
+  width:max-content;
+  -webkit-mask-image:var(--wear);
+  mask-image:var(--wear);
+  -webkit-mask-size:240px;
+  mask-size:240px;
+  will-change:transform;
+}
+.seg{display:flex;align-items:center;gap:clamp(16px,1.8vw,28px);padding-right:clamp(16px,1.8vw,28px)}
+.rivet{flex:0 0 auto;width:.34em;height:.34em;border-radius:50%;background:currentColor}
+
+/* Firma final: GARAGE pintado en la pared, con el piso por delante */
+.wordmark{
+  position:relative;
+  z-index:0;
+  display:block;
+  width:min(100%,1180px);
+  height:auto;
+  margin:clamp(48px,6vw,88px) auto 0;
+  opacity:.92;
+  pointer-events:none;
+  user-select:none;
+  -webkit-user-drag:none;
+}
 .close-in{position:relative;z-index:2;max-width:760px;margin:0 auto;display:flex;flex-direction:column;align-items:center;text-align:center}
 .lg-frame{--s:18px;display:grid;place-items:center;width:112px;height:112px}
 .lg-frame img{width:52px;height:auto}
@@ -504,7 +546,7 @@ img{max-width:100%}
   align-items:center;
   gap:12px 24px;
   max-width:1240px;
-  margin:clamp(96px,12vw,160px) auto 0;
+  margin:clamp(72px,8vw,112px) auto 0;
   font:600 11px/1 var(--font);
   letter-spacing:.26em;
   text-transform:uppercase;
@@ -632,6 +674,9 @@ img{max-width:100%}
   .wall-mottos{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:10px;width:100%}
   .wall-mottos li{letter-spacing:.16em;text-wrap:balance}
   .end-bar{flex-direction:column;align-items:center;text-align:center;gap:6px}
+  .tapes{height:132px}
+  .tape-a{transform:translateY(-96%) rotate(-5deg)}
+  .tape-b{transform:translateY(-4%) rotate(4deg)}
   .notify{width:min(100%,360px)}
   .notify-row{flex-direction:column}
   .field{flex:none}
@@ -741,6 +786,10 @@ img{max-width:100%}
 
   <footer class="close-sec" id="contacto" aria-labelledby="closeTitle">
     <canvas class="streaks" data-zones="wall" aria-hidden="true"></canvas>
+    <div class="tapes" id="tapes" aria-hidden="true">
+      <div class="tape tape-b"><div class="tape-track"><span class="seg">Quality over quantity<i class="rivet"></i>Passion drives us<i class="rivet"></i>EST. 2026<i class="rivet"></i>@lopeteguisgarage<i class="rivet"></i></span></div></div>
+      <div class="tape tape-a"><div class="tape-track"><span class="seg">Lopetegui’s Garage<i class="rivet"></i>Próximamente 2027<i class="rivet"></i>Built different<i class="rivet"></i>Made to last<i class="rivet"></i></span></div></div>
+    </div>
     <div class="close-in">
       <div class="lg-frame brk"><img id="wallMono" src="data:image/webp;base64,UklGRrYDAABXRUJQVlA4WAoAAAAQAAAAQAAAQQAAQUxQSFsDAAABoIX9/xlX+q1te2t3bdu2bds2j23b9lnb9m6n1jzTyU4nT5p8LvJL/v/07txFxATIusdvd+sFzEmkD/8nl4XPEjgJmJXUJwD/WCsmfEIyH6DvbKcAfZckfiX6bhsnE/2UtT184n5stvf3MbB1NaY3rW8gclHUIZY+Jtx8tRsFL5rIfK1BrF6PPlWkT1RGjKu0j+1cGTFBRI6LqDIr0ebYkX7aZAl3K2K+v7ba0sXaXCVlq1ZbaOkUbaZSZ6tGm2vpaG2R8ncob6FKm2qpWpuv/A5cIhbLtEXJrFS+YolYjViczGrll+mSyHJLVdoapUCSWZnMe4r1iPeSeb9XfGSpWHuvV7xnaa94RQl9ZGlnbU3odiZael5rsDQ4zlnAe1aOIXKslY3RF4lcSLirwsJJUW9bkbHaEnmVyJFbG8m92hdid39tuaSiIPOsSaE20FKVNknklhhUmOylvWOpVpsoIlv/GzFfTIu1AZYO1KZL+CXtSKN9tLctHaRNU07XxLhKG2rpEG1RrIxZtTY4zuA3YhygzVdOVJrN9tcGRW34Ca/HqNVmK6cprtnB2gBtuwHAozH2B3yYqpypYFarDVWGEb4xRnHw729/NzBaOQ0nnUpbKAMnl2aA4tCNyxUxCqj7ra6JAcqJpBvbA9esCvKuQx9lMnguF8QoAXyXwcrJhD2zYnCDHp5VhgMul8UoBnB5WzlO6TLbBwLgeWUR4UdjHAr4HfRRzlI6zTYDCHhAmaY8EeMknLaGJgYoxykps1IIgGeU8QQBvBjjRbLZpjZGKmeRAzJm70J3ANcq99OTz/NMjDqamzrqGKAchOPkgrzRhuj3K5fg9cCIqEtobMRJMUmpINcRZDnf5GMlgM8KRS7M0ZV3XOckrZrWf+tbWzvaSZ8mssHHQbY53ZBv2DLefcQd/xikc/kM/KZd8V6GjpbWXIcLq478gdbmpmb488J4suNNKfB9CADSnZ1pfjlcYvaBlkzW7XIh3/n3X82sLBaLx/4GAYCPm8vxihhOx2+HwHEz6b8auEwsX5QlIOx6HC3GVa14ucD3cm0Zb2ex/x5BCMrE5ng8P/A7PGdzSfJh1AKx+xSe3+2xnSR7YqhAbJ+FC2WS9A4/cIjYP8zjfOmFB0qShz8n6ygBAFZQOCA0AAAA8AMAnQEqQQBCAD49Ho5FIiGhEKQAIAPEtIAABPjRo0aNGjRo0aM/AAD+/WDLaCgAAAAAAA==" width="65" height="66" alt="LG"></div>
       <h2 class="close-title" id="closeTitle">Síguenos para la apertura</h2>
@@ -776,6 +825,7 @@ img{max-width:100%}
         <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M2 9l5-5 5 5"/></svg>
       </a>
     </div>
+    <img class="wordmark" id="wordmark" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" width="679" height="281" alt="" aria-hidden="true">
   </footer>
 </main>
 
@@ -908,7 +958,7 @@ const STREAK = {
 const ZONES = { // [centro vertical, alto, lado, alcance desde el borde]
   shutter: [[.1,.09,"both",.4],[.2,.05,"r",.26],[.58,.06,"l",.16],[.66,.05,"r",.2]],
   interior: [[.05,.06,"both",.3],[.42,.05,"l",.08],[.97,.03,"r",.3]],
-  wall: [[.1,.08,"r",.42],[.26,.05,"l",.18],[.93,.03,"l",.3]]
+  wall: [[.1,.08,"r",.42],[.3,.05,"l",.18],[.52,.03,"l",.3]]
 };
 let streakSeed = 7;
 function paintStreaks(cv){
@@ -1312,7 +1362,7 @@ let ticking = false;
 addEventListener("scroll", () => {
   if (ticking) return;
   ticking = true;
-  requestAnimationFrame(() => { lift(); ticking = false; });
+  requestAnimationFrame(() => { lift(); runTapes(); ticking = false; });
 }, { passive:true });
 interior.addEventListener("focusin", () => {
   if (!reduce && lifted < 1) scrollTo({ top: garageTop + runway, behavior:"smooth" });
@@ -1590,6 +1640,35 @@ if (avisoParam){
   history.replaceState(null, "", location.pathname + location.hash);
 }
 
+/* ---------- Cintas de taller: avanzan solo mientras haces scroll ---------- */
+const tapesEl = $("#tapes"), tracks = [...tapesEl.querySelectorAll(".tape-track")];
+let segW = [];
+// Copia el texto de cada cinta hasta cubrir el ancho, para que nunca se vea el final.
+function fillTapes(){
+  segW = tracks.map(t => {
+    while (t.children.length > 1) t.lastElementChild.remove();
+    const seg = t.firstElementChild, w = seg.offsetWidth;
+    const need = Math.ceil(innerWidth * 1.25 / w) + 1;
+    for (let i = 0; i < need; i++) t.appendChild(seg.cloneNode(true));
+    return w;
+  });
+  runTapes(true);
+}
+function runTapes(force){
+  if (reduce && !force) return;
+  const r = tapesEl.getBoundingClientRect();
+  if (!force && (r.bottom < -100 || r.top > innerHeight + 100)) return;
+  const d = reduce ? 0 : scrollY * .4;
+  tracks.forEach((t, i) => {
+    const w = segW[i];
+    if (!w) return;
+    const x = d % w;
+    t.style.transform = `translate3d(${(i ? x - w : -x).toFixed(1)}px,0,0)`;
+  });
+}
+
+$("#wordmark").src = IMG.garage;
+
 /* ---------- Monograma: se inclina un poco con el puntero ---------- */
 if (!reduce && matchMedia("(hover:hover) and (pointer:fine)").matches){
   const closeSec = document.getElementById("contacto");
@@ -1622,6 +1701,7 @@ setLabel(hint(), true);
 syncMode();
 lift();
 if (!reduce) rollUp(lifted);
+fillTapes();
 if (!reduce) neon.addEventListener("animationend", e => {
   if (e.animationName === "neonIgnite") neon.classList.remove("ignite");
 });

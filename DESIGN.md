@@ -210,6 +210,12 @@ Esquinas rectas en todo lo que es interfaz: botones, interruptor y paneles (0px)
 - **Style:** superficie rellena y tenue, sin contorno, con dos segmentos en Label.
 - **State:** el segmento activo lleva fondo rosa al 16% y un borde interior rosa de 1px.
 
+### Cinta de taller (componente propio)
+Dos cintas cruzadas arriba del cierre, como cinta de taller pegada en la pared. La de enfrente es rosa de marca plano con texto negro noche; la de atrás es acero oscuro (#0d0c12) con texto rosa plano. Ninguna brilla. Llevan Barlow Condensed 800 en mayúsculas (18–28px), los lemas, "Próximamente 2027", "EST. 2026" y @lopeteguisgarage, separados por remaches redondos del color del texto. El texto lleva la máscara de desgaste. Avanzan solo con el scroll (0.4px por cada px, en sentidos opuestos) y se detienen cuando el scroll se detiene; con movimiento reducido quedan quietas. En el celular se cruzan con más ángulo (−5° y 4°) para que se vean las dos.
+
+### Firma GARAGE (cierre)
+La palabra GARAGE del logo, enorme (hasta 1180px de ancho), pintada en la pared al final de la página con el piso del taller por delante, que tapa su base. Opacidad 0.92. Es la imagen real del logo, nunca una fuente parecida.
+
 ### Hang Tags (colores)
 - **Style:** etiquetas de cartón del color de la tela, con perforación, cordel de 1px y nombre del color en vertical.
 - **State:** la seleccionada baja 6px y brilla en su propio color. Al pasar el cursor se mece 5°.
@@ -227,7 +233,7 @@ Bajo el cajón está el tambor, donde la persiana se enrolla. Es un cilindro de 
 ### Do:
 - **Do** usar el logo de la marca como imagen, a 56vw en la persiana de escritorio y a 84vw en el celular.
 - **Do** marcar los controles con las cuatro esquinas rosas y fondo de rosa velado.
-- **Do** mantener el movimiento en seis gestos: la persiana atada al scroll, que se enrolla en el tambor y se asienta al llegar arriba; el encendido del neón una sola vez al cargar (1.4s, parpadeos en steps); el giro del rack (600ms); el detalle (250–300ms); el destello de glitch cada 6–12s; y la inclinación del monograma LG en el cierre (hasta 16°, 700ms con ease-out, solo con mouse). Respetar prefers-reduced-motion.
+- **Do** mantener el movimiento en siete gestos: las cintas de taller del cierre, que avanzan solo con el scroll; la persiana atada al scroll, que se enrolla en el tambor y se asienta al llegar arriba; el encendido del neón una sola vez al cargar (1.4s, parpadeos en steps); el giro del rack (600ms); el detalle (250–300ms); el destello de glitch cada 6–12s; y la inclinación del monograma LG en el cierre (hasta 16°, 700ms con ease-out, solo con mouse). Respetar prefers-reduced-motion.
 - **Do** iluminar con el foco cenital y cerrar las escenas con el piso.
 
 ### Don't:
