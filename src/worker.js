@@ -16,7 +16,7 @@ export default {
     const wantsJson = (request.headers.get("Accept") || "").includes("application/json");
     const reply = (status, code) => wantsJson
       ? Response.json({ ok: status < 300, code }, { status })
-      : Response.redirect(new URL(`/?aviso=${code}#contacto`, url).href, 303);
+      : Response.redirect(new URL(`/?aviso=${code}#drop`, url).href, 303);
 
     // Solo se aceptan envíos desde las páginas de este mismo sitio.
     const origin = request.headers.get("Origin");
