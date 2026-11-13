@@ -17,7 +17,7 @@
 <meta property="og:image:alt" content="Lopetegui's Garage — Built different. Número 07 gigante sobre fondo asfalto.">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="canonical" href="https://lopeteguisgarage.com/">
-<link rel="icon" type="image/webp" href="/img/mono.webp">
+<link rel="icon" type="image/png" href="/favicon.png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -136,7 +136,7 @@ html.js .persiana{
   background:linear-gradient(#26262a,#141416 30%,#0c0c0d);
   box-shadow:inset 0 2px 0 rgba(242,239,233,.08);
 }
-.persiana.nudge{transform:translateY(-14px)}
+html.js .persiana.nudge{transform:translateY(-14px);transition:transform .22s var(--ease)}
 .persiana.open{transform:translateY(-102%)}
 .p-logo{width:min(82vw,620px);height:auto;filter:drop-shadow(0 3px 0 rgba(0,0,0,.6))}
 .p-meta{margin:0;color:var(--bone-2)}
@@ -256,7 +256,7 @@ html.js .persiana{
 .toggle button[aria-pressed="true"]{background:var(--bone);color:var(--asphalt)}
 .card-body{padding:20px 18px 22px}
 .card-name{margin:0;font:400 clamp(30px,3vw,40px)/1 var(--display);text-transform:uppercase}
-.card-kind{margin:6px 0 0;color:var(--red);font-weight:500}
+.card-kind{margin:6px 0 0;color:var(--bone-3);font-weight:500}
 .specs{margin:18px 0 0;display:grid;gap:0}
 .specs div{display:grid;grid-template-columns:96px 1fr;gap:12px;padding:10px 0;border-top:1px solid var(--line)}
 .specs dt{color:var(--bone-3)}
@@ -320,8 +320,8 @@ html.js .persiana{
 .foot-bar{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px 24px;color:var(--bone-3)}
 
 /* ---------- Aparición al hacer scroll ---------- */
-html.js .reveal{opacity:0;transform:translateY(22px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
-html.js .reveal.in{opacity:1;transform:none}
+html.reveal-on .reveal{opacity:0;transform:translateY(22px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
+html.reveal-on .reveal.in{opacity:1;transform:none}
 
 /* ---------- Pantallas grandes ---------- */
 @media(min-width:760px){
@@ -334,7 +334,8 @@ html.js .reveal.in{opacity:1;transform:none}
   .drop-grid{grid-template-columns:1.15fr 1fr}
 }
 @media(max-width:560px){
-  .brand-tag{display:none}
+  .brand-tag{padding-left:10px}
+  .brand{gap:10px}
   .hero{align-items:flex-end}
   .hero-07{right:-.12em;top:34%}
   .ctas .btn{flex:1 1 100%}
@@ -347,7 +348,7 @@ html.js .reveal.in{opacity:1;transform:none}
   .persiana{transition:none!important}
   .marquee-track{animation:none}
   .view{animation:none}
-  html.js .reveal{opacity:1;transform:none;transition:none}
+  html.reveal-on .reveal{opacity:1;transform:none;transition:none}
   .btn svg,.socials a svg{transition:none}
 }
 </style>
@@ -383,7 +384,10 @@ html.js .reveal.in{opacity:1;transform:none}
     var h1 = document.getElementById("heroTitle");
     if (h1) h1.focus({ preventScroll:true });
     var done = function(){ p.hidden = true; };
-    if (reduce) done(); else { p.addEventListener("transitionend", done, { once:true }); setTimeout(done, 1500); }
+    if (reduce) done(); else {
+      p.addEventListener("transitionend", function te(e){ if (e.target !== p || e.propertyName !== "transform") return; p.removeEventListener("transitionend", te); done(); });
+      setTimeout(done, 1500);
+    }
     if (location.hash && location.hash.length > 1){
       var t = document.querySelector(location.hash);
       if (t) setTimeout(function(){ t.scrollIntoView({ behavior: reduce ? "auto" : "smooth" }); }, reduce ? 0 : 500);
@@ -517,6 +521,19 @@ html.js .reveal.in{opacity:1;transform:none}
 <div class="grain" aria-hidden="true"></div>
 
 <script>
+/* Aparición al hacer scroll. Va aparte: el contenido solo se oculta si este observador existe. */
+(function(){
+  if (matchMedia("(prefers-reduced-motion:reduce)").matches || !("IntersectionObserver" in window)) return;
+  document.documentElement.classList.add("reveal-on");
+  const io = new IntersectionObserver(entries => entries.forEach(en => {
+    if (en.isIntersecting){ en.target.classList.add("in"); io.unobserve(en.target); }
+  }), { threshold: .12, rootMargin: "0px 0px -6% 0px" });
+  const watch = () => document.querySelectorAll(".reveal:not(.in)").forEach(el => io.observe(el));
+  watch();
+  window.watchReveals = watch;
+})();
+</script>
+<script>
 /* =====================================================================
    CONFIGURACIÓN — todo lo editable está aquí.
    ===================================================================== */
@@ -559,7 +576,8 @@ const CONFIG = {
     }
   ]
 };
-
+</script>
+<script>
 /* =====================================================================
    Bocetos técnicos (SVG). Línea hueso, prints en rojo y hueso.
    ===================================================================== */
@@ -679,6 +697,7 @@ function cardHTML(g, i){
 }
 const cardsEl = document.getElementById("cards");
 cardsEl.innerHTML = CONFIG.garments.map(cardHTML).join("");
+if (window.watchReveals) window.watchReveals();
 cardsEl.addEventListener("click", e => {
   const b = e.target.closest(".toggle button");
   if (!b) return;
@@ -730,17 +749,6 @@ form.addEventListener("submit", async e => {
 const aviso = new URLSearchParams(location.search).get("aviso");
 if (aviso){ showForm(aviso); history.replaceState(null, "", location.pathname + location.hash); }
 
-/* =====================================================================
-   Aparición al hacer scroll
-   ===================================================================== */
-const reveals = document.querySelectorAll(".reveal");
-if (reduce || !("IntersectionObserver" in window)) reveals.forEach(el => el.classList.add("in"));
-else {
-  const io = new IntersectionObserver(entries => entries.forEach(en => {
-    if (en.isIntersecting){ en.target.classList.add("in"); io.unobserve(en.target); }
-  }), { threshold: .12, rootMargin: "0px 0px -6% 0px" });
-  reveals.forEach(el => io.observe(el));
-}
 </script>
 </body>
 </html>
